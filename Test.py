@@ -9,12 +9,12 @@ soup = BeautifulSoup(page, "html.parser")
 
 
 def readfnc(market):
-    if market in "Bitstamp":
+    if market in "Bitstamp" or "bitstamp":
         for child in soup.find(id="market_bitstampbtcusd"):
             bitstampcmp(child)
             writebitstamp(child)
             return print("Bitstamp USD/BTC:", child)
-    if market in "Bitfinex":
+    if market in "Bitfinex" or "bitfinex":
         for child in soup.find(id="market_bitfinexbtcusd"):
             bitfinexcmp(child)
             writebitfinex(child)
@@ -63,9 +63,9 @@ def bitfinexcmp(tocompare):
 
 
 def writebitstamp(towrite):
-    wrtfile = open("bitstampcmp.txt", "a")
-    wrtfile.write("%s\n" % towrite)
-    wrtfile.close()
+    with open("bitfinexcmp.txt", "a") as f:
+        f.write("%s\n" % towrite)
+    f.close()
 
 
 def writebitfinex(towrite):
