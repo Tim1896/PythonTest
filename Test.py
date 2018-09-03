@@ -1,5 +1,7 @@
 import urllib.request
 from bs4 import BeautifulSoup
+import tkinter
+
 
 url = "https://bitcoinwisdom.com/"
 
@@ -101,4 +103,16 @@ def start():
     checklength(userinput)
 
 
-start()
+def hellocallback():
+    print("Test Successful")
+
+
+top = tkinter.Tk()
+bstamp = tkinter.Button(top, text="Bitstamp", command=readfnc("Bitstamp"))
+bstamp.pack()
+
+bfinex = tkinter.Button(top, text="Bitfinex", command=readfnc("Bitfinex"))
+bfinex.pack()
+
+top.mainloop()
+
